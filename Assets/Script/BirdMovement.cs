@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BirdMovement : MonoBehaviour
 {
+    public GameManager gameManager;
     public float velocity = 1;
     private Rigidbody2D rb;
 
@@ -17,5 +18,10 @@ public class BirdMovement : MonoBehaviour
         {
             rb.velocity = Vector2.up * velocity;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        gameManager.GameOver();
     }
 }
